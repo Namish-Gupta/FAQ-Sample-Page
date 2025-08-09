@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | FAQ accordion</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; font-family: ANS;padding-bottom: 0.5rem;}
+    .attribution a { color: hsl(228, 45%, 44%); }
+    @font-face {
+      font-family: 'FAQS';
+      src: url('assets/fonts/static/WorkSans-Bold.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'QS';
+      src: url('assets/fonts/static/WorkSans-SemiBold.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'ANS';
+      src: url('assets/fonts/static/WorkSans-Regular.ttf') format('truetype');
+    }
+    body{
+      background-image: url('assets/images/background-pattern-desktop.svg');
+      background-repeat: no-repeat;
+      margin: 0;
+      background-size: 100% auto;
+      background-color: hsl(275, 100%, 97%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: fit-content;
+      overflow: auto;
+      flex-direction: column;
+    }
+    div.whitebox{
+      background-color: white;
+      padding: 2.75rem 2.5rem;
+      border-radius: 1.3rem;
+      box-shadow: 0 0 5rem 2rem rgba(20,20,20,0.15);
+      width: 40%;
+      margin: 10rem 0;
+    }
+    p{
+      font-family: ANS;
+      color: #888;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="whitebox">
+    <h1 style="font-family: FAQS;font-size: 3rem;display: flex;align-items: center;"><img src="assets/images/icon-star.svg" style="margin-right: 1.8rem;">FAQs</h1>
+
+    <h3 style="font-family: QS;display: flex;align-items: center;justify-content: space-between;">What is Frontend Mentor, and how will it help me?<span><img class="plus" src="assets/images/icon-plus.svg"><img class="minus" src="assets/images/icon-minus.svg" style="display: none;"></span></h3>
+
+    <p>Frontend Mentor offers realistic coding challenges to help developers improve their 
+    frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+    all levels and ideal for portfolio building.</p>
+
+    <h3 style="font-family: QS;display: flex;align-items: center;justify-content: space-between;">Is Frontend Mentor free?<span><img class="plus" src="assets/images/icon-plus.svg"><img class="minus" src="assets/images/icon-minus.svg" style="display: none;"></span></h3>
+
+    <p>Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
+    option providing access to a range of projects suitable for all skill levels.</p>
+
+    <h3 style="font-family: QS;display: flex;align-items: center;justify-content: space-between;">Can I use Frontend Mentor projects in my portfolio?<span><img class="plus" src="assets/images/icon-plus.svg"><img class="minus" src="assets/images/icon-minus.svg" style="display: none;"></span></h3>
+
+    <p>Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+    way to showcase your skills to potential employers!</p>
+
+    <h3 style="font-family: QS;display: flex;align-items: center;justify-content: space-between;">How can I get help if I'm stuck on a Frontend Mentor challenge?<span><img class="plus" src="assets/images/icon-plus.svg"><img class="minus" src="assets/images/icon-minus.svg" style="display: none;"></span></h3>
+    
+    <p>The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+    channel where you can ask questions and seek support from other community members.</p>
+  </div>
+  <script>
+    const expanding = document.getElementsByClassName("plus");
+    const contracting = document.getElementsByClassName("minus");
+    const answers = document.getElementsByTagName("p");
+    for (let i = 0; i < expanding.length; i++)
+    {
+      expanding[i].addEventListener("click",function() {expand(i);});
+      expanding[i].style.cursor = "pointer";
+    }
+    for (let i = 0; i < expanding.length; i++)
+    {
+      contracting[i].addEventListener("click",function() {contract(i);});
+      contracting[i].style.cursor = "pointer";
+    }
+    function expand(k){
+      expanding[k].style.display = "none";
+      contracting[k].style.display = "inline";
+      answers[k].style.display = "block";
+    }
+    function contract(k){
+      expanding[k].style.display = "inline";
+      contracting[k].style.display = "none";
+      answers[k].style.display = "none";
+    }
+  </script>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/Namish-Gupta">Namish Gupta</a>.
+  </div>
+</body>
+</html>
